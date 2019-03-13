@@ -56,7 +56,7 @@ class ActionRow extends Component { // Класс по es6
         children: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.number,
-            PropTypes.node
+            PropTypes.node,
         ]),
         /** флаг получения данных */
         isPending: PropTypes.bool, // Название флагов начинаются с "is"
@@ -80,8 +80,8 @@ class ActionRow extends Component { // Класс по es6
         super(props);
 
         this.state = {
-            isShowInfo: false
-        }
+            isShowInfo: false,
+        };
     }
 
 
@@ -90,9 +90,9 @@ class ActionRow extends Component { // Класс по es6
      */
     handleShowInfo = () => {  // Название метода обработчика начинается с "handle"
         this.setState(
-            { isShowInfo: true }, 
+            { isShowInfo: true },
             () => this.props.onShowDescription(),
-        ); 
+        );
     };
 
 
@@ -109,23 +109,23 @@ class ActionRow extends Component { // Класс по es6
      */
     renderDescription() {
         const { description } = this.props;
-        
-        return description 
+
+        return description
             ? (
                 <span onClick={this.handleShowInfo}>
                     <InfoIcon className={`${ActionRow.displayName}__icon`} />
                 </span>
-            ) 
+            )
             : null;
     }
-    
-    
+
+
     /**
      * Рендер информационного попапа
      */
     renderInfoPopup() { // Методы рендера начинаются с "render"
-        const { 
-            title, 
+        const {
+            title,
             description,
         } = this.props;
         const { isShowInfo } = this.state;
@@ -142,17 +142,17 @@ class ActionRow extends Component { // Класс по es6
 
 
     render() {
-        const { 
-            className, 
-            title, 
-            children, 
+        const {
+            className,
+            title,
+            children,
             isPending,
         } = this.props;
 
         const blockClasses = cx(ActionRow.displayName, {
             [`${ActionRow.displayName}_is-pending`]: isPending,
         }, className);
-        
+
         return (
             <div className={blockClasses}>
                 <Heading
@@ -230,6 +230,7 @@ QRCode.displayName = 'QRCode';
 
 
 export default QRCode;
+// Пустая строка в конце файла
 ```
 
 ### Стили
